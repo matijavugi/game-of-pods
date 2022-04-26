@@ -1,5 +1,5 @@
 
-kubectl config set-credentials drogo --client-certificate=/root/drogo.cert --client-key=/root/drogo.key
+kubectl config set-credentials drogo --client-certificate=/root/drogo.crt --client-key=/root/drogo.key
 kubectl config set-context developer --cluster=kubernetes --namespace=development --user=drogo
 
 kubectl config use-context developer
@@ -77,7 +77,7 @@ metadata:
   name: jekyll-site
   namespace: development
 spec:
-  storageClassName: manual
+  storageClassName: ""
   accessModes:
     - ReadWriteMany
   resources:
@@ -90,6 +90,7 @@ metadata:
   name: jekyll-site
   namespace: development
 spec:
+  storageClassName: ""
   accessModes:
     - ReadWriteMany
   capacity:
